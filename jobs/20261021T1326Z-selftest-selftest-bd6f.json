@@ -1,0 +1,26 @@
+{
+  "attempt": 1,
+  "created_utc": "2026-10-21T13:26:23Z",
+  "deps_lock_sha256": "b9b36af67ba425243a8636bb9c73c0e1b4417251055972db67d3704ce5393590",
+  "drive_run_dir": "runs/misc",
+  "env": {
+    "DEPS_LOCK_SHA256": "b9b36af67ba425243a8636bb9c73c0e1b4417251055972db67d3704ce5393590"
+  },
+  "fix_class": null,
+  "fix_note": null,
+  "idempotency_key": "selftest_2026-10-21",
+  "job_id": "20261021T1326Z-selftest-selftest-bd6f",
+  "kind": "selftest",
+  "parent_job_id": null,
+  "payload_args": [],
+  "payload_entry": "payload/selftest.py",
+  "requires": {
+    "gpu": true,
+    "min_vram_gb": 0
+  },
+  "responding_to": null,
+  "resume": true,
+  "schema_version": 1,
+  "stall_s": 900,
+  "timeout_s": 43200
+}
