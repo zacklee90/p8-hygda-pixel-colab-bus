@@ -1,0 +1,42 @@
+{
+  "attempt": 1,
+  "created_utc": "2026-10-21T20:46:49Z",
+  "deps_lock_sha256": "e008298ec1833207ba2290479620082f738416c4f9d21f6d6f06b435f4269219",
+  "drive_run_dir": "runs/p8",
+  "env": {
+    "CHECKPOINTING_STEPS": "500",
+    "DATASET_VERSION": "pixelv1",
+    "DEPS_LOCK_SHA256": "e008298ec1833207ba2290479620082f738416c4f9d21f6d6f06b435f4269219",
+    "GRAD_ACCUM": "8",
+    "LR": "0.0001",
+    "LR_SCHEDULER": "cosine_with_restarts",
+    "LR_WARMUP_STEPS": "200",
+    "MAX_TRAIN_STEPS": "3000",
+    "MIXED_PRECISION": "fp16",
+    "MODEL_ID": "stable-diffusion-v1-5/stable-diffusion-v1-5",
+    "MODEL_REVISION": "451f4fe16113bff5a5d2269ed5ad43b0592e9a14",
+    "PILOT": "0",
+    "RANK": "32",
+    "RESOLUTION": "512",
+    "RUN_NAME": "p8",
+    "SEED": "42",
+    "TRAIN_BATCH_SIZE": "2"
+  },
+  "fix_class": null,
+  "fix_note": null,
+  "idempotency_key": "p8_full_r32_s3000",
+  "job_id": "20261021T2046Z-train_lora-p8-full-83e0",
+  "kind": "train_lora",
+  "parent_job_id": null,
+  "payload_args": [],
+  "payload_entry": "payload/train_lora.py",
+  "requires": {
+    "gpu": true,
+    "min_vram_gb": 14
+  },
+  "responding_to": null,
+  "resume": true,
+  "schema_version": 1,
+  "stall_s": 900,
+  "timeout_s": 43200
+}
