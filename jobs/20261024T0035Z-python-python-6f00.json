@@ -1,0 +1,28 @@
+{
+  "attempt": 1,
+  "created_utc": "2026-10-24T00:35:33Z",
+  "deps_lock_sha256": "e008298ec1833207ba2290479620082f738416c4f9d21f6d6f06b435f4269219",
+  "drive_run_dir": "runs/misc",
+  "env": {
+    "DEPS_LOCK_SHA256": "e008298ec1833207ba2290479620082f738416c4f9d21f6d6f06b435f4269219",
+    "PROMPTS_CSV": "/content/drive/MyDrive/p8-hygda-pixel/eval/p8_full_s3000_proto/prompts.csv",
+    "RUN_ID": "p8_full_s3000"
+  },
+  "fix_class": null,
+  "fix_note": null,
+  "idempotency_key": "gen_proto_p8_full_s3000",
+  "job_id": "20261024T0035Z-python-python-6f00",
+  "kind": "python",
+  "parent_job_id": null,
+  "payload_args": [],
+  "payload_entry": "payload/generate_lora.py",
+  "requires": {
+    "gpu": false,
+    "min_vram_gb": 0
+  },
+  "responding_to": null,
+  "resume": true,
+  "schema_version": 1,
+  "stall_s": 900,
+  "timeout_s": 3600
+}
