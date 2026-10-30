@@ -52,6 +52,9 @@ def main() -> int:
     os.environ.setdefault("P8_LOCAL_WORK", "/content/p8work")
     os.environ.setdefault("P8_SESSION_ID", f"colab-{int(time.time())}")
     os.environ.setdefault("P8_POLL_S", "15")
+    # auto-stop (2026-10-30): an idle agent exits after this many seconds without a job, and the runtime is then
+    # released below, so a finished session stops consuming compute units on its own
+    os.environ.setdefault("P8_IDLE_EXIT_S", "600")
     os.environ["PYTHONUNBUFFERED"] = "1"
 
     print(f"bus       : {os.environ['P8_DRIVE_BUS']}", flush=True)
@@ -64,6 +67,20 @@ def main() -> int:
     ).returncode
 
 
+def release_runtime() -> None:
+    """Disconnect and delete the Colab runtime (stops compute-unit use). Needs the notebook kernel, which is
+    why it lives here and not in the agent: the agent and its jobs run in child processes."""
+    try:
+        from google.colab import runtime  # noqa: PLC0415 - only exists on Colab
+    except ImportError:
+        print("[bootstrap] not on Colab - nothing to release", flush=True)
+        return
+    print("[bootstrap] work done and idle - releasing the runtime (no more compute units)", flush=True)
+    runtime.unassign()
+
+
 if __name__ == "__main__" or True:   # exec()'d from a notebook cell, so __name__ is not __main__
     _rc = main()
     print(f"[bootstrap] supervisor exited rc={_rc}", flush=True)
+    if _rc == 0:                      # clean idle exit; on a fatal/crash exit keep the runtime so the log can be read
+        release_runtime()
